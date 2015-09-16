@@ -1,29 +1,20 @@
-function PlayerX(mark_x) {
-  this.mark_x = mark_x;
-};
+//initiate player
+var Player = function(symbol) {
+  this.symbol = symbol;
+}
 
-PlayerX.prototype.mark = function() {
-  return this.mark_x;
-};
-
-function PlayerO(mark_o) {
-  this.mark_o = mark_o;
-};
-
-PlayerO.prototype.mark = function() {
-  return this.mark_o;
-};
-
+//set gameboard with 9 index positions
 function GameBoard() {
   this.spaces = [0, 1, 2, 3, 4, 5, 6, 7, 8];
 };
 
+//specify a position and replace with a mark
 GameBoard.prototype.mark = function(xo, position) {
   this.spaces.splice(position, 1, xo);
   return this.spaces;
 };
 
-
+//winning scenario
 GameBoard.prototype.win = function() {
 if (((this.spaces[0] == "X") && (this.spaces[1] == "X") && (this.spaces[2] == "X")) ||
     ((this.spaces[3] == "X") && (this.spaces[4] == "X") && (this.spaces[5] == "X")) ||
@@ -50,5 +41,9 @@ if (((this.spaces[0] == "O") && (this.spaces[1] == "O") && (this.spaces[2] == "O
 
 // $(document).ready(function(){
 //   var gameBoard = new GameBoard();
-//   var currentthis.spaces = gameBoard.mark("X", 1);
+//
+//   var playerX = new Player("X");
+//   var playerO = new Player("O");
+//
+//   gameBoard.mark("X", 1);
 // });
